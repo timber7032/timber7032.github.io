@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>动漫岛-动漫岛在线动漫观看_新番连载与经典番剧合集</title>
+<meta name="description" content="动漫岛是一个面向动漫爱好者的在线动漫观看入口，按新番连载、经典番剧、剧场版与专题合集组织内容，提供清晰的追番路径与分类浏览方式。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141b2e'/%3E%3Ccircle cx='32' cy='30' r='13' fill='none' stroke='%23ffb347' stroke-width='4'/%3E%3Cpath d='M32 17v26M19 30h26' stroke='%23ffb347' stroke-width='3'/%3E%3Cpath d='M22 52h20' stroke='%235ad1c8' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#12182a;
+    --ink-2:#1d2540;
+    --paper:#f7f8fc;
+    --card:#ffffff;
+    --line:#e3e7f2;
+    --brand:#ffb347;
+    --brand-2:#ff8a3d;
+    --teal:#2fb6ae;
+    --text:#232a3d;
+    --muted:#69718a;
+    --radius:16px;
+    --shadow:0 10px 28px rgba(18,24,42,.08);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,sans-serif;
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{max-width:100%;display:block;}
+  .wrap{width:min(1120px,92vw);margin:0 auto;}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,248,252,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;align-items:center;gap:22px;
+    min-height:68px;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-weight:800;font-size:20px;letter-spacing:.5px;
+    color:var(--ink);white-space:nowrap;
+  }
+  .logo .mark{
+    width:38px;height:38px;flex:0 0 38px;
+    border-radius:12px;background:var(--ink);
+    display:grid;place-items:center;
+  }
+  nav.main{margin-left:auto;}
+  nav.main ul{
+    display:flex;gap:6px;list-style:none;margin:0;padding:0;
+  }
+  nav.main a{
+    display:block;padding:8px 13px;border-radius:10px;
+    font-size:15px;color:var(--muted);font-weight:600;
+    transition:.18s;
+  }
+  nav.main a:hover,nav.main a:focus-visible{
+    color:var(--ink);background:#eef1fa;outline:none;
+  }
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--ink);color:#fff;font-weight:700;font-size:14px;
+    padding:9px 16px;border-radius:10px;
+  }
+  .nav-cta:hover{background:var(--ink-2);}
+  .menu-toggle{display:none;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      radial-gradient(760px 340px at 82% -10%,rgba(255,179,71,.28),transparent 70%),
+      radial-gradient(620px 300px at 8% 110%,rgba(47,182,174,.20),transparent 70%),
+      linear-gradient(180deg,#ffffff 0%,#f7f8fc 100%);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:44px;
+    align-items:center;padding:58px 0 62px;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;letter-spacing:1px;
+    color:var(--teal);background:rgba(47,182,174,.10);
+    padding:5px 12px;border-radius:999px;margin-bottom:18px;
+  }
+  h1{
+    font-size:clamp(30px,4.4vw,50px);
+    line-height:1.22;margin:0 0 16px;
+    font-weight:900;letter-spacing:-.5px;color:var(--ink);
+  }
+  h1 .accent{
+    background:linear-gradient(96deg,var(--brand-2),var(--brand));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{
+    margin:0 0 24px;font-size:17px;color:var(--muted);max-width:36em;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:12px;font-weight:700;font-size:15px;
+    transition:.18s;border:1px solid transparent;
+  }
+  .btn-primary{
+    background:linear-gradient(120deg,var(--brand-2),var(--brand));
+    color:#26170a;box-shadow:0 8px 20px rgba(255,138,61,.32);
+  }
+  .btn-primary:hover{filter:brightness(1.04);transform:translateY(-1px);}
+  .btn-ghost{
+    background:#fff;border-color:var(--line);color:var(--ink);
+  }
+  .btn-ghost:hover{border-color:#c9d0e3;background:#fbfcff;}
+  .hero-stats{
+    display:flex;flex-wrap:wrap;gap:26px;margin-top:30px;
+    padding-top:22px;border-top:1px dashed var(--line);
+  }
+  .hero-stats div strong{
+    display:block;font-size:22px;font-weight:900;color:var(--ink);line-height:1.3;
+  }
+  .hero-stats div span{font-size:13px;color:var(--muted);}
+
+  .hero-art{
+    position:relative;border-radius:22px;overflow:hidden;
+    background:linear-gradient(160deg,#141b2e,#1f2a48);
+    box-shadow:var(--shadow);padding:18px;
+  }
+  .hero-art .frame{
+    border-radius:14px;background:rgba(255,255,255,.045);
+    padding:14px;border:1px solid rgba(255,255,255,.08);
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:58px 0;}
+  .sec-head{margin-bottom:26px;}
+  .sec-head h2{
+    font-size:clamp(22px,2.6vw,28px);margin:0 0 8px;
+    font-weight:900;color:var(--ink);letter-spacing:-.3px;
+  }
+  .sec-head p{margin:0;color:var(--muted);font-size:15px;max-width:44em;}
+
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+
+  .card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:22px;
+    transition:.2s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#d5dbec;}
+  .card .ico{
+    width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+    background:rgba(255,179,71,.14);margin-bottom:14px;
+  }
+  .card h3{font-size:17px;margin:0 0 8px;font-weight:800;color:var(--ink);}
+  .card p{margin:0;font-size:14.5px;color:var(--muted);}
+
+  /* ---------- catalog ---------- */
+  .catalog{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .tabs{
+    display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;
+  }
+  .tab{
+    cursor:pointer;border:1px solid var(--line);background:#f7f8fc;
+    color:var(--muted);font:inherit;font-size:14px;font-weight:700;
+    padding:8px 16px;border-radius:999px;transition:.16s;
+  }
+  .tab:hover{border-color:#c9d0e3;color:var(--ink);}
+  .tab[aria-selected="true"]{
+    background:var(--ink);border-color:var(--ink);color:#fff;
+  }
+  .anime-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  }
+  .anime{
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    background:#fff;transition:.2s;display:flex;flex-direction:column;
+  }
+  .anime:hover{box-shadow:var(--shadow);transform:translateY(-2px);}
+  .anime .cover{
+    aspect-ratio:16/9;background:linear-gradient(135deg,#1c2540,#33406b);
+    position:relative;display:grid;place-items:center;
+  }
+  .anime .cover span{
+    position:absolute;left:10px;top:10px;font-size:11px;font-weight:800;
+    padding:3px 9px;border-radius:999px;background:rgba(255,179,71,.92);color:#26170a;
+  }
+  .anime .body{padding:14px 16px 16px;}
+  .anime h3{font-size:15.5px;margin:0 0 6px;font-weight:800;color:var(--ink);}
+  .anime p{margin:0;font-size:13.5px;color:var(--muted);}
+  .anime .meta{
+    margin-top:10px;font-size:12.5px;color:#8b93a9;
+    display:flex;gap:12px;flex-wrap:wrap;
+  }
+  .empty-note{
+    display:none;padding:26px;border:1px dashed var(--line);
+    border-radius:14px;color:var(--muted);font-size:14.5px;text-align:center;
+  }
+
+  /* ---------- watch path ---------- */
+  .steps{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step;
+  }
+  .step{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:20px;position:relative;
+  }
+  .step::before{
+    counter-increment:step;content:counter(step,decimal-leading-zero);
+    font-size:13px;font-weight:900;color:var(--brand-2);
+    display:block;margin-bottom:8px;letter-spacing:1px;
+  }
+  .step h3{font-size:15.5px;margin:0 0 6px;font-weight:800;color:var(--ink);}
+  .step p{margin:0;font-size:13.5px;color:var(--muted);}
+
+  /* ---------- feature split ---------- */
+  .split{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;
+  }
+  .split .panel{
+    background:linear-gradient(150deg,#141b2e,#24304f);
+    border-radius:20px;padding:26px;color:#dfe5f5;
+  }
+  .split .panel h3{color:#fff;font-size:18px;margin:0 0 12px;font-weight:800;}
+  .split .panel ul{margin:0;padding-left:18px;font-size:14.5px;line-height:2;color:#b9c2da;}
+  .split .panel li::marker{color:var(--brand);}
+  .split p{color:var(--muted);font-size:15.5px;}
+
+  .faq-item{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:18px 20px;margin-bottom:12px;
+  }
+  .faq-item h3{font-size:15.5px;margin:0 0 6px;font-weight:800;color:var(--ink);}
+  .faq-item p{margin:0;font-size:14.5px;color:var(--muted);}
+
+  /* ---------- footer ---------- */
+  footer.site{
+    background:var(--ink);color:#a9b2ca;padding:46px 0 30px;margin-top:20px;
+  }
+  footer .f-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;
+    padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.10);
+  }
+  footer .logo{color:#fff;}
+  footer .logo .mark{background:#2a3352;}
+  footer p{margin:10px 0 0;font-size:14px;line-height:1.9;}
+  footer h4{color:#fff;font-size:14px;margin:0 0 12px;font-weight:800;letter-spacing:.5px;}
+  footer ul{list-style:none;margin:0;padding:0;font-size:14px;}
+  footer ul li{margin-bottom:8px;}
+  footer ul a:hover{color:var(--brand);}
+  .copyright{
+    padding-top:20px;font-size:13px;color:#7c86a2;
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  }
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:32px;padding:42px 0 46px;}
+    .hero-art{max-width:520px;}
+    .grid-3,.anime-grid{grid-template-columns:repeat(2,1fr);}
+    .steps{grid-template-columns:repeat(2,1fr);}
+    .split{grid-template-columns:1fr;}
+    footer .f-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    body{font-size:15.5px;}
+    .nav-inner{min-height:60px;gap:8px;}
+    .logo{font-size:18px;}
+    .logo .mark{width:34px;height:34px;flex-basis:34px;}
+    nav.main{
+      display:none;position:absolute;left:0;right:0;top:100%;
+      background:#fff;border-bottom:1px solid var(--line);
+      box-shadow:0 12px 24px rgba(18,24,42,.10);padding:10px 4vw 16px;
+    }
+    nav.main.open{display:block;}
+    nav.main ul{flex-direction:column;gap:2px;}
+    nav.main a{padding:11px 12px;font-size:15.5px;}
+    .nav-cta{display:none;}
+    .menu-toggle{
+      display:inline-flex;margin-left:auto;align-items:center;gap:7px;
+      background:#eef1fa;border:1px solid var(--line);border-radius:10px;
+      padding:8px 13px;font:inherit;font-size:14px;font-weight:700;color:var(--ink);
+      cursor:pointer;
+    }
+    .menu-toggle:focus-visible{outline:2px solid var(--brand-2);outline-offset:2px;}
+    section{padding:42px 0;}
+    .grid-3,.grid-2,.anime-grid,.steps{grid-template-columns:1fr;}
+    .hero-stats{gap:18px 26px;}
+    footer .f-grid{grid-template-columns:1fr;}
+    .hero-actions .btn{flex:1 1 100%;justify-content:center;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none!important;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top" aria-label="动漫岛 首页">
+      <span class="mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="11" r="6.4" stroke="#ffb347" stroke-width="2"/>
+          <path d="M12 4.6v12.8M5.6 11h12.8" stroke="#ffb347" stroke-width="1.6"/>
+          <path d="M7.5 20.4h9" stroke="#5ad1c8" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </span>
+      动漫岛
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" id="menuBtn">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      导航
+    </button>
+    <nav class="main" id="primary-nav" aria-label="主导航">
+      <ul>
+        <li><a href="#catalog">番剧分类</a></li>
+        <li><a href="#new">新番连载</a></li>
+        <li><a href="#path">观看路径</a></li>
+        <li><a href="#feature">选集说明</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="#catalog">进入番剧库</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="2.6" fill="#2fb6ae"/>
+            <circle cx="7" cy="7" r="6" stroke="#2fb6ae" stroke-width="1.2" opacity=".6"/>
+          </svg>
+          动画番剧在线浏览
+        </span>
+        <h1>动漫岛</h1>
+        <p class="lead">
+          动漫岛把新番连载、经典番剧、剧场版和专题合集放在同一套分类里，从季度更新到完结补番都能找到入口。选一部番，按集数顺序往下看即可。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#catalog">
+            浏览番剧分类
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a class="btn btn-ghost" href="#new">查看本季新番</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>4</strong><span>内容分区</span></div>
+          <div><strong>3</strong><span>季度更新节奏</span></div>
+          <div><strong>1</strong><span>统一选集入口</span></div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="frame">
+          <svg viewBox="0 0 420 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="动漫岛番剧卡片与选集界面示意插画">
+            <rect width="420" height="300" rx="16" fill="#182136"/>
+            <circle cx="352" cy="46" r="58" fill="#ffb347" opacity=".16"/>
+            <circle cx="352" cy="46" r="30" fill="#ffb347" opacity=".28"/>
+            <rect x="22" y="22" width="184" height="104" rx="10" fill="#26314f"/>
+            <path d="M22 96l52-34 44 26 34-20 54 30v14a10 10 0 01-10 10H32a10 10 0 01-10-10V96z" fill="#32406a"/>
+            <circle cx="62" cy="54" r="11" fill="#ffb347"/>
+            <rect x="86" y="44" width="86" height="7" rx="3.5" fill="#5b6a94"/>
+            <rect x="86" y="60" width="58" height="7" rx="3.5" fill="#44527c"/>
+            <rect x="22" y="140" width="88" height="6" rx="3" fill="#3a4770"/>
+            <rect x="22" y="158" width="120" height="6" rx="3" fill="#2c3654"/>
+
+            <rect x="228" y="22" width="170" height="104" rx="10" fill="#26314f"/>
+            <path d="M228 96l48-32 40 24 32-18 50 28v14a10 10 0 01-10 10H238a10 10 0 01-10-10V96z" fill="#32406a"/>
+            <circle cx="266" cy="54" r="11" fill="#2fb6ae"/>
+            <rect x="290" y="44" width="78" height="7" rx="3.5" fill="#5b6a94"/>
+            <rect x="290" y="60" width="52" height="7" rx="3.5" fill="#44527c"/>
+            <rect x="228" y="140" width="96" height="6" rx="3" fill="#3a4770"/>
+            <rect x="228" y="158" width="66" height="6" rx="3" fill="#2c3654"/>
+
+            <rect x="22" y="186" width="376" height="1" fill="#2c3654"/>
+            <g fill="#2c3654">
+              <rect x="22" y="204" width="40" height="28" rx="6"/>
+              <rect x="72" y="204" width="40" height="28" rx="6"/>
+              <rect x="122" y="204" width="40" height="28" rx="6"/>
+              <rect x="172" y="204" width="40" height="28" rx="6"/>
+              <rect x="222" y="204" width="40" height="28" rx="6"/>
+            </g>
+            <rect x="22" y="204" width="40" height="28" rx="6" fill="#ffb347"/>
+            <rect x="28" y="215" width="28" height="5" rx="2.5" fill="#3a2308"/>
+            <rect x="22" y="250" width="150" height="6" rx="3" fill="#3a4770"/>
+            <rect x="22" y="266" width="96" height="6" rx="3" fill="#2c3654"/>
+            <circle cx="360" cy="258" r="18" fill="none" stroke="#ffb347" stroke-width="2.4"/>
+            <path d="M354 250l14 8-14 8v-16z" fill="#ffb347"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 分区入口 -->
+  <section id="new">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>动漫岛的内容分区</h2>
+        <p>按更新状态和内容类型切成四块，每块解决一种访问需求：想看当季的、想补完结的、想找单部剧场版的，或者想按题材连着看。</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 15V6l6-3 6 3v9" stroke="#ff8a3d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="11" r="2.4" stroke="#ff8a3d" stroke-width="1.8"/></svg>
+          </div>
+          <h3>新番连载</h3>
+          <p>按季度归档当期开播作品，标注更新集数与放送进度，适合每周固定追更的观众。</p>
+        </div>
+        <div class="card">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="4" width="14" height="12" rx="2" stroke="#ff8a3d" stroke-width="1.8"/><path d="M3 8h14M7.5 12h5" stroke="#ff8a3d" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3>经典番剧</h3>
+          <p>收录已完结、篇幅完整的作品，按年代与题材排列，方便一次性补完或重温。</p>
+        </div>
+        <div class="card">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2.5" y="5" width="15" height="10" rx="2" stroke="#ff8a3d" stroke-width="1.8"/><path d="M9 8.4l3 1.6-3 1.6V8.4z" fill="#ff8a3d"/></svg>
+          </div>
+          <h3>剧场版与特别篇</h3>
+          <p>单集长度的剧场版、OVA 与特别篇单独成区，不混入正篇集数，查找不受干扰。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 番剧库 -->
+  <section class="catalog" id="catalog">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>番剧库一览</h2>
+        <p>点选下方分类切换筛选，列表会即时更新。以下为分类编排示例，用于说明动漫岛的条目组织方式。</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="番剧分类筛选">
+        <button class="tab" role="tab" id="tab-all" aria-selected="true" aria-controls="animeList" data-filter="all" type="button">全部</button>
+        <button class="tab" role="tab" id="tab-new" aria-selected="false" aria-controls="animeList" data-filter="new" type="button">新番连载</button>
+        <button class="tab" role="tab" id="tab-classic" aria-selected="false" aria-controls="animeList" data-filter="classic" type="button">经典番剧</button>
+        <button class="tab" role="tab" id="tab-movie" aria-selected="false" aria-controls="animeList" data-filter="movie" type="button">剧场版</button>
+      </div>
+
+      <div class="anime-grid" id="animeList" role="tabpanel" aria-labelledby="tab-all">
+        <article class="anime" data-cat="new">
+          <div class="cover"><span>连载中</span>
+            <svg width="54" height="54" viewBox="0 0 56 56" fill="none" aria-hidden="true"><circle cx="28" cy="28" r="16" stroke="#ffb347" stroke-width="2"/><path d="M28 12v32M12 28h32" stroke="#ffb347" stroke-width="1.4" opacity=".7"/></svg>
+          </div>
+          <div class="body">
+            <h3>本季开播作品</h3>
+            <p>当期放送中的番剧按周更新，主页显示最新集数，进入详情页可按顺序选集。</p>
+            <div class="meta"><span>周更</span><span>更新提示</span></div>
+          </div>
+        </article>
+        <article class="anime" data-cat="classic">
+          <div class="cover"><span>已完结</span>
+            <svg width="54" height="54" viewBox="0 0 56 56" fill="none" aria-hidden="true"><rect x="14" y="16" width="28" height="24" rx="4" stroke="#5ad1c8" stroke-width="2"/><path d="M14 24h28" stroke="#5ad1c8" stroke-width="1.4" opacity=".7"/></svg>
+          </div>
+          <div class="body">
+            <h3>高口碑完结番</h3>
+            <p>篇幅完整的作品集中在此，从第一集到最终话连续可看，适合长线补番。</p>
+            <div class="meta"><span>全篇</span><span>顺序选集</span></div>
+          </div>
+        </article>
+        <article class="anime" data-cat="movie">
+          <div class="cover"><span>单集</span>
+            <svg width="54" height="54" viewBox="0 0 56 56" fill="none" aria-hidden="true"><rect x="13" y="18" width="30" height="20" rx="3" stroke="#ffb347" stroke-width="2"/><path d="M25 23.5l7 4.5-7 4.5v-9z" fill="#ffb347"/></svg>
+          </div>
+          <div class="body">
+            <h3>剧场版精选</h3>
+            <p>独立成篇的剧场版作品，单次看完，不与 TV 正篇集数混排。</p>
+            <div class="meta"><span>单集</span><span>独立收录</span></div>
+          </div>
+        </article>
+        <article class="anime" data-cat="new">
+          <div class="cover"><span>连载中</span>
+            <svg width="54" height="54" viewBox="0 0 56 56" fill="none" aria-hidden="true"><path d="M18 40V22l10-6 10 6v18" stroke="#5ad1c8" stroke-width="2" stroke-linejoin="round"/><circle cx="28" cy="30" r="4" stroke="#5ad1c8" stroke-width="2"/></svg>
+          </div>
+          <div class="body">
+            <h3>季度新番专题</h3>
+            <p>把同季度开播作品放在一个专题里，按放送日列出，便于安排追番顺序。</p>
+            <div class="meta"><span>专题</span><span>按日排列</span></div>
+          </div>
+        </article>
+        <article class="anime" data-cat="classic">
+          <div class="cover"><span>已完结</span>
+            <svg width="54" height="54" viewBox="0 0 56 56" fill="none" aria-hidden="true"><circle cx="28" cy="28" r="14" stroke="#ffb347" stroke-width="2"/><path d="M28 18v10l7 4" stroke="#ffb347" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="body">
+            <h3>年代经典回顾</h3>
+            <p>按年代归类的旧作，附简介与集数信息，适合按年代顺序集中回看。</p>
+            <div class="meta"><span>按年代</span><span>简介齐全</span></div>
+          </div>
+        </article>
+        <article class="anime" data-cat="movie">
+          <div class="cover"><span>单集</span>
+            <svg width="54" height="54" viewBox="0 0 56 56" fill="none" aria-hidden="true"><path d="M16 20h24v16H16z" stroke="#5ad1c8" stroke-width="2"/><path d="M16 24h24" stroke="#5ad1c8" stroke-width="1.4" opacity=".7"/><circle cx="28" cy="31" r="3" fill="#5ad1c8"/></svg>
+          </div>
+          <div class="body">
+            <h3>特别篇与 OVA</h3>
+            <p>正篇之外的短篇与番外内容，单独标注，避免与主线集数混淆。</p>
+            <div class="meta"><span>番外</span><span>单独标注</span></div>
+          </div>
+        </article>
+      </div>
+      <p class="empty-note" id="emptyNote">该分类下暂无条目，可切换到“全部”查看完整列表。</p>
+    </div>
+  </section>
+
+  <!-- 观看路径 -->
+  <section id="path">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>在动漫岛看一部番的完整路径</h2>
+        <p>从找到作品到看完最后一集，只需要四个步骤，中途不需要跳转到其他页面。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>选分类</h3>
+          <p>先判断想看的作品属于新番、完结番还是剧场版，从对应分区进入。</p>
+        </div>
+        <div class="step">
+          <h3>筛题材</h3>
+          <p>用题材标签缩小范围，比如热血、日常、悬疑，减少无关条目干扰。</p>
+        </div>
+        <div class="step">
+          <h3>开详情页</h3>
+          <p>详情页列出简介、集数与更新时间，确认是否要追或一次性补完。</p>
+        </div>
+        <div class="step">
+          <h3>按集观看</h3>
+          <p>在选集区按顺序点选，已看集数会保留在最近浏览记录中。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 选集说明 -->
+  <section id="feature" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap split">
+      <div>
+        <div class="sec-head">
+          <h2>选集与进度怎么用</h2>
+        </div>
+        <p>
+          动漫岛的详情页把集数按播出顺序平铺，而不是折叠成下拉菜单，追更时不用反复展开。看完一集后，下次进入会自动定位到上次那一集，接着往下点就行。
+        </p>
+        <p>
+          剧场版与特别篇不占用正篇集数编号，因此补番时不会出现“第 12.5 集”这种断档。长篇作品按季拆分成多个条目，每一季各自维护自己的集数列表。
+        </p>
+        <p>
+          如果只想快速找回最近在看的内容，首页的最近浏览区会保留最近打开的作品，点一下就能回到对应集数。
+        </p>
+      </div>
+      <div class="panel">
+        <h3>选集区包含的信息</h3>
+        <ul>
+          <li>集数编号与单集标题</li>
+          <li>更新时间与放送状态</li>
+          <li>已看标记与续看定位</li>
+          <li>正篇、番外、剧场的归类</li>
+          <li>季与季之间的跳转入口</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>常见问题</h2>
+        <p>关于动漫岛的分类方式与观看顺序，下面几条覆盖了最常被问到的情况。</p>
+      </div>
+      <div class="faq-item">
+        <h3>新番和完结番会混在一起吗？</h3>
+        <p>不会。动漫岛按放送状态分成两个分区，新番连载只放当期更新中的作品，完结番则只收录已经完结的条目。</p>
+      </div>
+      <div class="faq-item">
+        <h3>剧场版需要按正篇顺序看吗？</h3>
+        <p>多数剧场版是独立故事，可以单独观看；若与正篇剧情相关，详情页会在简介中注明建议的观看节点。</p>
+      </div>
+      <div class="faq-item">
+        <h3>长篇作品怎么找到第二季、第三季？</h3>
+        <p>同一系列的各季在详情页以系列列表形式串联，从任意一季都能跳到其他季，不必回到分类页重新搜索。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="logo" href="#top" aria-label="动漫岛 返回顶部">
+          <span class="mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="11" r="6.4" stroke="#ffb347" stroke-width="2"/>
+              <path d="M12 4.6v12.8M5.6 11h12.8" stroke="#ffb347" stroke-width="1.6"/>
+              <path d="M7.5 20.4h9" stroke="#5ad1c8" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          动漫岛
+        </a>
+        <p>动漫岛以新番连载、经典番剧、剧场版与专题合集组织番剧内容，用统一的选集入口承接追番与补番两种观看方式。</p>
+      </div>
+      <div>
+        <h4>浏览入口</h4>
+        <ul>
+          <li><a href="#catalog">番剧分类</a></li>
+          <li><a href="#new">新番连载</a></li>
+          <li><a href="#path">观看路径</a></li>
+          <li><a href="#feature">选集说明</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用帮助</h4>
+        <ul>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#path">如何按集观看</a></li>
+          <li><a href="#feature">进度与续看</a></li>
+          <li><a href="#top">返回顶部</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>动漫岛 · 动画番剧分类浏览</span>
+      <span>站内分类与选集说明</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.getElementById('menuBtn');
+    var nav = document.getElementById('primary-nav');
+    if(btn && nav){
+      btn.addEventListener('click', function(){
+        var open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.addEventListener('click', function(e){
+        if(e.target.tagName === 'A' && nav.classList.contains('open')){
+          nav.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    }
+
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+    var items = Array.prototype.slice.call(document.querySelectorAll('#animeList .anime'));
+    var empty = document.getElementById('emptyNote');
+    var list = document.getElementById('animeList');
+
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        var f = tab.getAttribute('data-filter');
+        tabs.forEach(function(t){
+          t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+        });
+        list.setAttribute('aria-labelledby', tab.id);
+        var shown = 0;
+        items.forEach(function(it){
+          var match = (f === 'all' || it.getAttribute('data-cat') === f);
+          it.style.display = match ? '' : 'none';
+          if(match) shown++;
+        });
+        empty.style.display = shown === 0 ? 'block' : 'none';
+      });
+    });
+  })();
+</script>
+</body>
+                                        </html>
