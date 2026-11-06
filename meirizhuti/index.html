@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日主题大赛mrds-每日主题大赛每日主题_每日大赛mrds热点内容</title>
+<meta name="description" content="每日主题大赛mrds首页，聚合每日主题大赛的最新主题看点、热点内容与往期回顾，帮助读者快速了解每日大赛mrds的当日主题与内容脉络。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23161a2b'/%3E%3Ccircle cx='32' cy='30' r='12' fill='none' stroke='%23ffb347' stroke-width='4'/%3E%3Cpath d='M32 14v-6M32 52v-6M14 30h-6M56 30h-6' stroke='%23ffb347' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#161a2b;
+  --ink-soft:#2a3050;
+  --paper:#f7f5f0;
+  --card:#ffffff;
+  --amber:#f0a32c;
+  --amber-deep:#c97f10;
+  --line:#e4dfd4;
+  --muted:#6c6a62;
+  --radius:16px;
+  --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+
+/* header */
+header.site{position:sticky;top:0;z-index:30;background:rgba(22,26,43,.97);color:#f4f1e9;border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-inner{display:flex;align-items:center;gap:18px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;letter-spacing:.2px;white-space:nowrap}
+.logo .mark{width:30px;height:30px;flex:none}
+nav.main{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+nav.main a{font-size:14px;padding:7px 11px;border-radius:999px;color:#d9d5c9;transition:.18s}
+nav.main a:hover,nav.main a:focus-visible{background:rgba(240,163,44,.18);color:#ffcf7d}
+.menu-btn{display:none;margin-left:auto;background:none;border:1px solid rgba(255,255,255,.25);color:#f4f1e9;border-radius:8px;padding:6px 10px;font-size:14px}
+
+/* hero */
+.hero{background:linear-gradient(160deg,#161a2b 0%,#232a48 62%,#2f2a24 100%);color:#f4f1e9;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-140px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(240,163,44,.28),transparent 65%)}
+.hero-inner{position:relative;z-index:2;padding:58px 0 54px;display:grid;grid-template-columns:1.35fr .85fr;gap:44px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.16em;color:#ffcf7d;border:1px solid rgba(240,163,44,.45);padding:4px 12px;border-radius:999px;margin-bottom:20px}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--amber)}
+h1{font-size:40px;line-height:1.22;font-weight:800;letter-spacing:.5px;margin-bottom:18px}
+h1 .accent{color:var(--amber)}
+.hero p.lead{font-size:16px;color:#cfcbc0;max-width:36em;margin-bottom:26px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;padding:12px 22px;border-radius:10px;border:1px solid transparent;transition:.18s}
+.btn-primary{background:var(--amber);color:#241a06}
+.btn-primary:hover{background:#ffb84d}
+.btn-ghost{border-color:rgba(255,255,255,.3);color:#f4f1e9}
+.btn-ghost:hover{border-color:var(--amber);color:#ffcf7d}
+.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:22px;backdrop-filter:blur(4px)}
+.hero-card h2{font-size:14px;font-weight:600;letter-spacing:.1em;color:#ffcf7d;margin-bottom:14px}
+.today-date{font-size:30px;font-weight:800;letter-spacing:1px;margin-bottom:4px}
+.today-theme{font-size:15px;color:#d9d5c9;margin-bottom:16px}
+.mini-list{list-style:none;display:grid;gap:10px}
+.mini-list li{display:flex;gap:10px;font-size:14px;color:#cfcbc0;align-items:flex-start}
+.mini-list li::before{content:"";width:7px;height:7px;margin-top:8px;border-radius:2px;background:var(--amber);flex:none}
+
+/* sections */
+section{padding:56px 0}
+.sec-head{margin-bottom:26px}
+.sec-head .kicker{font-size:12.5px;letter-spacing:.18em;color:var(--amber-deep);font-weight:700;margin-bottom:8px}
+.sec-head h2{font-size:26px;font-weight:800;line-height:1.35}
+.sec-head p{color:var(--muted);font-size:15px;margin-top:8px;max-width:44em}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:10px;transition:.2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(22,26,43,.09)}
+.card .tag{font-size:12px;font-weight:700;color:var(--amber-deep);letter-spacing:.06em}
+.card h3{font-size:17px;font-weight:700;line-height:1.45}
+.card p{font-size:14.5px;color:#4c4a44;line-height:1.7}
+.card .meta{margin-top:auto;font-size:12.5px;color:var(--muted);padding-top:6px;border-top:1px dashed var(--line)}
+
+.split{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:start}
+.prose p{font-size:15.5px;color:#3a3832;margin-bottom:16px}
+.prose p strong{color:var(--ink)}
+.side-box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.side-box h3{font-size:15px;font-weight:700;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.side-list{list-style:none;display:grid;gap:12px}
+.side-list li{font-size:14px;color:#43413b;display:flex;gap:10px}
+.side-list li span.num{color:var(--amber-deep);font-weight:800;flex:none}
+
+.review-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);font-size:14.5px}
+.review-table th,.review-table td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line)}
+.review-table th{background:#efeade;font-weight:700;font-size:13.5px;color:var(--ink-soft);letter-spacing:.04em}
+.review-table tr:last-child td{border-bottom:none}
+.review-table td:first-child{font-weight:600;white-space:nowrap}
+
+.download-band{background:var(--ink);color:#f4f1e9;border-radius:var(--radius);padding:34px 30px;display:flex;gap:26px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.download-band h2{font-size:22px;font-weight:800;margin-bottom:6px}
+.download-band p{font-size:14.5px;color:#c3bfb4;max-width:38em}
+.btn[data-download-placeholder]{pointer-events:none;background:#3b3f57;color:#b9b6ab;border:1px solid #4d5270;cursor:default}
+
+/* about strip */
+.about-strip{background:#efeade;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.about-item h3{font-size:15.5px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.about-item h3 svg{width:18px;height:18px;flex:none}
+.about-item p{font-size:14px;color:#4c4a44;line-height:1.72}
+
+/* footer */
+footer.site{background:#12152a;color:#b9b6ab;padding:40px 0 28px;font-size:13.5px}
+.foot-top{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-logo{display:flex;align-items:center;gap:10px;font-weight:700;color:#f4f1e9;font-size:15px}
+.foot-logo .mark{width:26px;height:26px}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap}
+.foot-links a:hover{color:#ffcf7d}
+.foot-note{margin-top:18px;font-size:12.5px;color:#7f7c72;line-height:1.7}
+
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:30px;padding:44px 0 40px}
+  h1{font-size:31px}
+  .cards{grid-template-columns:1fr 1fr}
+  .split{grid-template-columns:1fr;gap:24px}
+  .about-grid{grid-template-columns:1fr}
+}
+@media (max-width:680px){
+  nav.main{display:none}
+  .menu-btn{display:inline-block}
+  nav.main.open{display:flex;position:absolute;top:64px;left:0;right:0;background:#161a2b;flex-direction:column;padding:10px 16px 16px;gap:2px;border-bottom:1px solid rgba(255,255,255,.1)}
+  nav.main.open a{padding:10px 8px}
+  h1{font-size:27px}
+  .cards{grid-template-columns:1fr}
+  section{padding:42px 0}
+  .sec-head h2{font-size:22px}
+  .today-date{font-size:26px}
+  .download-band{padding:26px 20px}
+  .review-table{font-size:13.5px}
+  .review-table th,.review-table td{padding:11px 12px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top" aria-label="每日主题大赛mrds 首页">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#232a48"/>
+        <circle cx="32" cy="30" r="12" fill="none" stroke="#f0a32c" stroke-width="4"/>
+        <path d="M32 14v-6M32 52v-6M14 30h-6M56 30h-6" stroke="#f0a32c" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <span>每日主题大赛mrds</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">菜单</button>
+    <nav class="main" id="mainNav" aria-label="主导航">
+      <a href="#today">今日主题</a>
+      <a href="#hot">热点内容</a>
+      <a href="#explain">大赛解读</a>
+      <a href="#review">往期回顾</a>
+      <a href="#download">下载主题</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>每日更新 · 主题内容首页</span>
+        <h1>每日主题大赛mrds</h1>
+        <p class="lead">每日主题大赛mrds 以“一天一个主题”的方式汇集当日热门看点、讨论脉络与往期精彩。打开这一页，就能看到今天大家都在围绕什么主题展开内容。</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#today">查看今日主题
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#hot">浏览热点内容</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="今日主题速览">
+        <h2>今日主题速览</h2>
+        <div class="today-date">每日一题</div>
+        <div class="today-theme">主题按日轮换，内容围绕当日主题持续沉淀</div>
+        <ul class="mini-list">
+          <li>当日主题集中展示，阅读路径清晰</li>
+          <li>热点内容按主题归类，便于比对</li>
+          <li>往期主题可回看，脉络一目了然</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <section id="today">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">TODAY</div>
+        <h2>今天的每日主题大赛mrds在讲什么</h2>
+        <p>每日主题大赛mrds 的核心是“主题”二字：每天先确定一个主题，再把相关讨论、素材与观点归到同一处。下面三栏分别对应主题入口、内容看点与阅读提示。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="tag">主题入口</span>
+          <h3>当日主题集中呈现</h3>
+          <p>每日主题大赛mrds 把当天主题放在首屏位置，读者不必翻找，就能知道这一天的内容围绕什么展开。主题名称简明，说明文字控制在几行之内，方便快速判断是否感兴趣。</p>
+          <div class="meta">适合首次访问者</div>
+        </article>
+        <article class="card">
+          <span class="tag">内容看点</span>
+          <h3>同一主题下的多个切面</h3>
+          <p>围绕一个主题，通常会延伸出背景、讨论与延伸阅读几个层面。每日主题大赛mrds 将这些切面并列摆放，让读者既能看到全貌，也能按自己的兴趣深入某一处。</p>
+          <div class="meta">适合深度阅读</div>
+        </article>
+        <article class="card">
+          <span class="tag">阅读提示</span>
+          <h3>先看结论再看细节</h3>
+          <p>如果时间有限，可以先读每张卡片的标题与首句，再决定是否展开。每日主题大赛mrds 的卡片式结构正是为此设计，短摘要与长正文互为补充，不重复堆叠。</p>
+          <div class="meta">适合碎片时间</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="hot" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">HOT</div>
+        <h2>热点内容：每日主题大赛mrds的当日看点</h2>
+        <p>热点内容按主题聚拢，不按时间流水排列。同一主题下的条目彼此关联，读起来像一条完整的线索，而不是零散消息。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="tag">看点一</span>
+          <h3>主题为何在此时出现</h3>
+          <p>每日主题大赛mrds 的主题并非随意挑选，通常会与近期被反复提及的话题相关。理解主题出现的时机，有助于判断它为什么值得一看。</p>
+          <div class="meta">背景线索</div>
+        </article>
+        <article class="card">
+          <span class="tag">看点二</span>
+          <h3>讨论中的不同声音</h3>
+          <p>同一主题下常有不同角度的看法。每日主题大赛mrds 把这些声音并列呈现，读者可以对照阅读，而不是只看到单一结论。</p>
+          <div class="meta">观点对照</div>
+        </article>
+        <article class="card">
+          <span class="tag">看点三</span>
+          <h3>延伸阅读的方向</h3>
+          <p>当一个主题引发兴趣，下一步往往是想看更多同类内容。每日主题大赛mrds 在条目末尾给出延伸方向，帮助读者顺势继续阅读。</p>
+          <div class="meta">继续阅读</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="explain" style="padding-top:0">
+    <div class="wrap split">
+      <div class="prose">
+        <div class="sec-head" style="margin-bottom:18px">
+          <div class="kicker">EXPLAIN</div>
+          <h2>读懂每日主题大赛mrds的栏目结构</h2>
+        </div>
+        <p><strong>每日主题大赛mrds 不是一场需要报名参赛的活动</strong>，而是一个以“每日主题”为核心的内容聚合页面。这里的“大赛”指的是围绕主题展开的内容热度与讨论规模，读者以浏览、比对和回看为主，不需要提交作品，也没有赛程表。</p>
+        <p>页面按四个层次组织：<strong>今日主题</strong>回答“今天看什么”，<strong>热点内容</strong>回答“这个话题有哪些切面”，<strong>大赛解读</strong>说明栏目如何运转，<strong>往期回顾</strong>则把过去几天的主题串成一条线。四者各司其职，避免同一信息反复出现。</p>
+        <p>阅读时建议先看首屏的主题速览，再进入热点内容挑选感兴趣的条目。若某个主题让你想追根溯源，往期回顾会给出前几日的主题名称与内容方向，方便对照。每日主题大赛mrds 的内容以静态呈现为主，页面加载后即可完整阅读，不依赖额外操作。</p>
+        <p>对内容创作者而言，这个页面也可以当作选题参照：看一天的主题如何被拆成多个切面，再思考自己的内容可以落在哪一层。每日主题大赛mrds 的栏目划分本身就是一种组织内容的方法。</p>
+      </div>
+      <aside class="side-box">
+        <h3>阅读路线建议</h3>
+        <ul class="side-list">
+          <li><span class="num">01</span><span>首屏速览：确认当天主题与大致方向</span></li>
+          <li><span class="num">02</span><span>热点内容：挑一到两个切面细读</span></li>
+          <li><span class="num">03</span><span>大赛解读：了解栏目之间的关系</span></li>
+          <li><span class="num">04</span><span>往期回顾：把主题放进更长的时间线</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="review" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">REVIEW</div>
+        <h2>往期回顾：每日主题大赛mrds的主题脉络</h2>
+        <p>下表按轮次列出主题方向与内容侧重，便于快速回看。每期主题独立成篇，前后之间不构成因果关系。</p>
+      </div>
+      <table class="review-table">
+        <thead>
+          <tr><th>轮次</th><th>主题方向</th><th>内容侧重</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>最近一期</td><td>生活观察类主题</td><td>日常细节中的共鸣点与讨论</td></tr>
+          <tr><td>上一期</td><td>文化趣味类主题</td><td>传统元素与当下表达的结合</td></tr>
+          <tr><td>再往前</td><td>网络热点类主题</td><td>热门话题的多角度梳理</td></tr>
+          <tr><td>更早一期</td><td>创意表达类主题</td><td>形式新颖的内容与观点</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="about-strip" aria-label="关于每日主题大赛mrds">
+    <div class="wrap about-grid">
+      <div class="about-item">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#c97f10" stroke-width="2"/><path d="M12 7v5l3 2" stroke="#c97f10" stroke-width="2" stroke-linecap="round"/></svg>
+          每日更新节奏
+        </h3>
+        <p>主题按日轮换，页面以当天内容为主，读者每次打开都能看到新的主题入口与对应看点。</p>
+      </div>
+      <div class="about-item">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13" stroke="#c97f10" stroke-width="2" stroke-linecap="round"/></svg>
+          内容组织方式
+        </h3>
+        <p>以主题为单位聚合内容，短摘要负责判断，正文负责展开，两层信息不重复，阅读效率更高。</p>
+      </div>
+      <div class="about-item">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l2.5 5.5L20 11l-5.5 2.5L12 19l-2.5-5.5L4 11l5.5-2.5L12 3z" stroke="#c97f10" stroke-width="2" stroke-linejoin="round"/></svg>
+          回看与延续
+        </h3>
+        <p>往期主题保留在页面中，便于把某一天的看点放回更长的时间线里重新理解。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <div class="download-band">
+        <div>
+          <h2>下载主题</h2>
+          <p>将每日主题大赛mrds 的主题内容打包留存，方便离线查看与后续整理。当前下载入口仍在准备中，正式地址上线后将在此处直接替换。</p>
+        </div>
+        <a class="btn" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-logo">
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#232a48"/>
+          <circle cx="32" cy="30" r="12" fill="none" stroke="#f0a32c" stroke-width="4"/>
+          <path d="M32 14v-6M32 52v-6M14 30h-6M56 30h-6" stroke="#f0a32c" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span>每日主题大赛mrds</span>
+      </div>
+      <div class="foot-links">
+        <a href="#today">今日主题</a>
+        <a href="#hot">热点内容</a>
+        <a href="#explain">大赛解读</a>
+        <a href="#review">往期回顾</a>
+        <a href="#download">下载主题</a>
+      </div>
+    </div>
+    <p class="foot-note">每日主题大赛mrds 是一个以每日主题为核心的内容聚合页面，聚焦主题看点、讨论切面与往期脉络。页面内容随主题更新，阅读无需注册。</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn');
+  var nav=document.getElementById('mainNav');
+  if(btn&&nav){
+    btn.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    nav.addEventListener('click',function(e){
+      if(e.target.tagName==='A'&&nav.classList.contains('open')){
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
